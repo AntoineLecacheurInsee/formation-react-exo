@@ -9,11 +9,14 @@ import MonComposant from './components/MonComposant';
 import TableauContainer from './components/TableauContainer';
 import TableauDataGrid from './components/TableauDataGrid';
 import TableauDatatables from './components/TableauDatatables';
+import Accueil from './components/Accueil';
+import WrapperPage from './components/WrapperPage';
 
 const App = () => {
 
-  return <>
+  return <WrapperPage>
     <Routes>
+      <Route path="/" element={<Accueil />} />
       <Route path='formulaire-redux' element={<FormulaireContainer />} />
       <Route path='tableau-redux' element={<TableauContainer />} />
       <Route path='dashboard-redux' element={<DashboardContainer />} />
@@ -23,8 +26,7 @@ const App = () => {
       <Route path='tableau-datagrid' element={<TableauDataGrid />} />
       <Route path='formulaire-formik' element={<FormulaireFormik />} />
     </Routes>
-  </>
-    ;
+  </WrapperPage>
 }
 
 export default App;
