@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import Formulaire from './Formulaire'
-import { majNomAppli, modifierCompteur } from './redux/actions'
+import { majNomAppli, modifierCompteur } from '../redux/actions'
 
 const mapDispatchToProps = dispatch => (
     {

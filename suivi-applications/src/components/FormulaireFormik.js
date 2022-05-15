@@ -1,10 +1,11 @@
+import React from 'react';
 import { Button, ButtonGroup, FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 import { Box } from '@mui/system'
 import { useFormik } from 'formik'
 
 const validate = values => {
     const errors = {}
-    if(!values.nom || values.nom.length<2) {
+    if (!values.nom || values.nom.length < 2) {
         errors.nom = "Le nom est trop court ou absent"
     }
     return errors
@@ -41,22 +42,22 @@ const FormulaireFormik = () => {
     return <>
 
         <form onSubmit={formik.handleSubmit}>
-            <Grid container style={{padding:'2em'}}>
-                <Grid item xs={12}/>
-                <Grid item xs={12}/>
-                
+            <Grid container style={{ padding: '2em' }}>
+                <Grid item xs={12} />
+                <Grid item xs={12} />
+
                 <Grid item>
                     <TextField {...formik.getFieldProps('nom')} error={formik.errors.nom} helperText={formik.errors.nom} label="Nom de l'application" />
                 </Grid>
 
-            <TextField {...formik.getFieldProps('version')} />
-            <TextField {...formik.getFieldProps('etat')} />
-            <FormControl fullWidth>
-                <InputLabel id="etat" fullWidth>Etat de l'application</InputLabel>
-                <Select labelId="etat" label="Etat de l'application" {...formik.getFieldProps('etat')}>
-                    {["ACTIVE", "OBSOLETE"].map(etat => <MenuItem key={etat} value={etat}>{etat}</MenuItem>)}
-                </Select>
-            </FormControl>
+                <TextField {...formik.getFieldProps('version')} />
+                <TextField {...formik.getFieldProps('etat')} />
+                <FormControl fullWidth>
+                    <InputLabel id="etat" fullWidth>Etat de l'application</InputLabel>
+                    <Select labelId="etat" label="Etat de l'application" {...formik.getFieldProps('etat')}>
+                        {["ACTIVE", "OBSOLETE"].map(etat => <MenuItem key={etat} value={etat}>{etat}</MenuItem>)}
+                    </Select>
+                </FormControl>
             </Grid>
             <Box sx={{ alignItems: 'center', display: 'flex' }}>
                 <ButtonGroup variant="outlined" aria-label="outlined button group">

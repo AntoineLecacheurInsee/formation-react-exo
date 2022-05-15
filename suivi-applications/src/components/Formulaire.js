@@ -1,13 +1,11 @@
-import { Button, ButtonGroup, Container, FormControl, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material";
+import React, { useState } from "react";
+import { Link as MuiLink, Button, ButtonGroup, Container, FormControl, InputLabel, MenuItem, Paper, Select, TextField } from "@mui/material";
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
-import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { default as MuiLink } from '@material-ui/core/Link'
+import { Link } from "react-router-dom";
 
 const Formulaire = ({ incrementer, mettreAJour }) => {
 
-    // const { state } = useLocation();
     const [nom, setNom] = useState('application test')
     const [version, setVersion] = useState(1)
     const [etat, setEtat] = useState("OBSOLETE")

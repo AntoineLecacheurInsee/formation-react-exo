@@ -1,11 +1,10 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import MUIDataTable from "mui-datatables"
 import { Button, Chip } from "@mui/material";
-import CustomFilterList from "./CustomFilterList";
 
-const TableauDatatables = ({compteur}) => {								
-	const [data, setData] = useState([])    
+const TableauDatatables = ({ compteur }) => {
+    const [data, setData] = useState([])
 
     const charger = () => {
         const headers = new Headers();
@@ -15,20 +14,22 @@ const TableauDatatables = ({compteur}) => {
             .then(reponse => setData(reponse))
             .catch(e => console.log(e));
     }
-	
-    useEffect(()=> {
-       charger();
-	}, [])
-    
+
+    useEffect(() => {
+        charger();
+    }, [])
+
     const supprimer = idApplication => {
         const headers = new Headers();
-        headers.append("Content-Type" , "application/json")
-        fetch(`http://localhost:8080/applications/${idApplication}`, 
-            {headers: headers,
-            method: 'DELETE'})
-        .then(reponse => charger())
-        .catch(e => console.log(e))
-        
+        headers.append("Content-Type", "application/json")
+        fetch(`http://localhost:8080/applications/${idApplication}`,
+            {
+                headers: headers,
+                method: 'DELETE'
+            })
+            .then(reponse => charger())
+            .catch(e => console.log(e))
+
     }
 
     const navigate = useNavigate();
@@ -37,7 +38,7 @@ const TableauDatatables = ({compteur}) => {
         {
             name: 'id',
             label: 'Identifiant',
-            options : {
+            options: {
                 display: 'none',
                 filter: true,
                 sort: false
@@ -47,7 +48,7 @@ const TableauDatatables = ({compteur}) => {
             name: 'nom',
             label: 'Nom',
             options: {
-                customBodyRender : (value, tableMeta, updateValue) => {
+                customBodyRender: (value, tableMeta, updateValue) => {
                     return <Chip label={value}></Chip>
                 }
             }
@@ -63,32 +64,28 @@ const TableauDatatables = ({compteur}) => {
         {
             name: '',
             options: {
-                customBodyRender : (value, tableMeta, updateValue) => {
+                customBodyRender: (value, tableMeta, updateValue) => {
                     return <Button onClick={e => supprimer(tableMeta.rowData[0])}>Supprimer</Button>
                 }
             }
         }
     ]
 
-    const optionsTableau = {
+    return data.length > 0
+        ? <div>
+            <MUIDataTable data={data} columns={colonnes} />
 
-    }
-
-	return data.length > 0 
-    ? <div>
-        <MUIDataTable data={data} columns={colonnes}/>
-        
-        <button onClick={() =>  navigate('/formulaire-redux', {
-                                    state: { nomAppli : 'Appli qui vient du tableau'}
-                                })}>
-             Afficher formulaire
-        </button>
-        <div>
-            Il y a eu {compteur} enregistrements
+            <button onClick={() => navigate('/formulaire-redux', {
+                state: { nomAppli: 'Appli qui vient du tableau' }
+            })}>
+                Afficher formulaire
+            </button>
+            <div>
+                Il y a eu {compteur} enregistrements
+            </div>
         </div>
-    </div> 
-    
-	:<></>
+
+        : <></>
 }
 
 export default TableauDatatables
