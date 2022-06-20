@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useRoutes } from 'react-router-dom';
 import './App.css';
 import Dashboard from './components/Dashboard';
 import DashboardContainer from './components/DashboardContainer';
@@ -11,22 +11,29 @@ import TableauDataGrid from './components/TableauDataGrid';
 import TableauDatatables from './components/TableauDatatables';
 import Accueil from './components/Accueil';
 import WrapperPage from './components/WrapperPage';
+import { routes } from './components/breadcrumbs/breadcrumbs-routes';
 
 const App = () => {
 
+  let renderRoutes = useRoutes(routes);
+
   return <WrapperPage>
-    <Routes>
-      <Route path="/" element={<Accueil />} />
-      <Route path='formulaire-redux' element={<FormulaireContainer />} />
-      <Route path='tableau-redux' element={<TableauContainer />} />
-      <Route path='dashboard-redux' element={<DashboardContainer />} />
-      <Route path='dashboard' element={<Dashboard />} />
-      <Route path='demo' element={<MonComposant />} />
-      <Route path='tableau-datatables' element={<TableauDatatables />} />
-      <Route path='tableau-datagrid' element={<TableauDataGrid />} />
-      <Route path='formulaire-formik' element={<FormulaireFormik />} />
-    </Routes>
-  </WrapperPage>
+    {/* Déclaration "centralisée" des routes */}
+    {renderRoutes}
+
+    {/* Déclaration classique des routes
+      <Routes>
+        <Route path="/" element={<Accueil />} />
+        <Route path='formulaire-redux' element={<FormulaireContainer />} />
+        <Route path='tableau-redux' element={<TableauContainer />} />
+        <Route path='dashboard-redux' element={<DashboardContainer />} />
+        <Route path='dashboard' element={<Dashboard />} />
+        <Route path='demo' element={<MonComposant />} />
+        <Route path='tableau-datatables' element={<TableauDatatables />} />
+        <Route path='tableau-datagrid' element={<TableauDataGrid />} />
+        <Route path='formulaire-formik' element={<FormulaireFormik />} /> 
+      </Routes> */}
+  </WrapperPage >
 }
 
 export default App;
