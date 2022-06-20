@@ -1,1 +1,1 @@
-# formation-react-exo
+# Formation React - Code pour les exercices
