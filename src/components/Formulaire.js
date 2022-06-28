@@ -45,8 +45,8 @@ const Formulaire = ({ incrementer, mettreAJour }) => {
                             <TextField id="version" label="Version" onChange={e => setVersion(e.target.value)} value={version} />
                         </Grid>
                         <Grid item xs={6}>
-                            <FormControl fullWidth>
-                                <InputLabel id="etat" fullWidth>Etat de l'application</InputLabel>
+                            <FormControl>
+                                <InputLabel id="etat">Etat de l'application</InputLabel>
                                 <Select labelId="etat" label="Etat de l'application" value={etat} onChange={e => setEtat(e.target.value)}>
                                     {["ACTIVE", "OBSOLETE"].map(etat => <MenuItem key={etat} value={etat}>{etat}</MenuItem>)}
                                 </Select>
