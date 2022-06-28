@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import { CounterModernRedux } from './components/CounterModernRedux';
 import Dashboard from './components/Dashboard';
 import DashboardContainer from './components/DashboardContainer';
 import Formulaire from './components/Formulaire';
@@ -24,6 +25,7 @@ const App = () => {
       <Route path='tableau-datatables' element={<TableauDatatables/>}/>
       <Route path='tableau-datagrid' element={<TableauDataGrid/>}/>
       <Route path='formulaire-formik' element={<FormulaireFormik/>}/>
+      <Route path='compteur' element={<CounterModernRedux/>}/>
     </Routes>
   </>
     ;
