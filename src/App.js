@@ -1,15 +1,6 @@
 import React from 'react';
-import { Route, Routes, useRoutes } from 'react-router-dom';
+import { useRoutes } from 'react-router-dom';
 import './App.css';
-import Dashboard from './components/Dashboard';
-import DashboardContainer from './components/DashboardContainer';
-import FormulaireContainer from './components/FormulaireContainer';
-import FormulaireFormik from './components/FormulaireFormik';
-import MonComposant from './components/MonComposant';
-import TableauContainer from './components/TableauContainer';
-import TableauDataGrid from './components/TableauDataGrid';
-import TableauDatatables from './components/TableauDatatables';
-import Accueil from './components/Accueil';
 import WrapperPage from './components/WrapperPage';
 import { routes } from './components/breadcrumbs/breadcrumbs-routes';
 

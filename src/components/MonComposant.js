@@ -1,13 +1,9 @@
-import React, { useState } from 'react' // toujours
-import Enfant from './Enfant'
-const TextFieldStandard = props => {
+import React from 'react'; // toujours
+import Enfant from './Enfant';
 
+const MonComposant = props => {
 
-
-    return <>
-
-        {/* <TextField id="version" label="Version" onChange={e => setVersion(e.target.value)} value={version} /> */}
-    </>
+    return <Enfant />
 }
 
-export default TextFieldStandard
+export default MonComposant;

@@ -1,5 +1,4 @@
 # Formation React - Code pour les exercices
-
 La branche **upgrade-content** propose une "correction" des exercices réalisés pendant la formation, avec quelques améliorations, et des exemples de bout de code réutilisable.
 
 ## Lancer l'application
@@ -33,3 +32,29 @@ return (
 ```
 
 ## Wrapper des pages de l'application
+
+Le composant **WrapperPage** permet d'envelopper toutes les pages de l'application pour un affichage générique, on aura toujours le fil d'Ariane (les breadcrumbs) en haut de page, et le contenu de la page en-dessous :
+```javascript
+export default function WrapperPage({ children }) {
+    return <Container>
+        <Grid item>
+            {/* Affichage du fil d'Ariane en haut de page */}
+            <nav role="navigation" aria-label="menu-principal">
+                <RouterBreadcrumbs />
+            </nav>
+        </Grid>
+        <Grid item>
+            {/* Affichage de la balise <main> et du contenu de la page */}
+            <main id="main" role="main">
+                {children}
+            </main>
+        </Grid>
+    </Container>
+}
+```
+
+De la même manière, on pourrait définir une barre de navigation à cet endroit, au-dessus de notre fil d'Ariane, pour le voir apparaître partout dans notre application. Même chose pour un pied de page (footer).
+
+
+
+
