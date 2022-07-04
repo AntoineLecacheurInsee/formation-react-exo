@@ -1,11 +1,8 @@
 import React from 'react' // toujours
 import Enfant from './Enfant'
 
-const TextFieldStandard = props => {
-
-    
-
+const MonComposant = () => {
     return <Enfant />
 }
 
-export default TextFieldStandard;
+export default MonComposant;
