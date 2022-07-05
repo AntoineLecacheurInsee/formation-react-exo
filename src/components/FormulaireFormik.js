@@ -18,7 +18,7 @@ const initialValues = {
     etat: 'ACTIVE'
 };
 
-const FormulaireFormik = () => {
+const FormulaireFormik = ({ onSubmit }) => {
 
     const enregistrer = values => {
         const headers = new Headers();
@@ -33,6 +33,7 @@ const FormulaireFormik = () => {
                 console.log(reponse)
             })
             .catch(e => console.log(e))
+        onSubmit(values)
     }
 
     return <Formik initialValues={initialValues} enableReinitialize onSubmit={(values) => enregistrer(values)} validationSchema={validationSchema}>
