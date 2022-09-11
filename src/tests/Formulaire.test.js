@@ -8,6 +8,6 @@ jest.mock('react-router-dom', () => ({
 describe('Tests des composants du domaine ', () => {
 	test('Affichage du formulaire', () => {
 		render(<Formulaire/>)
-		expect(screen.getByText("Retour vers le tableau")).toBeInTheDocument()
+		expect(screen.getByText("Retour vers le tableau redux")).toBeInTheDocument()
 	})
 })
