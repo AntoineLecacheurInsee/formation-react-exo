@@ -1,16 +1,11 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import Formulaire from '../components/Formulaire';
-
-// mocker le composant Link s'il est inclus dans Formulaire
-jest.mock('react-router-dom', () => ({
-	Link: 'div',
-}))
+import Formulaire from '../components/formulaires/Formulaire';
 
 // mocker la fonction useNavigate si elle est incluse dans Formulaire
 jest.mock('react-router-dom', () => ({
 	useNavigate: () => (jest.fn())
-}));
+}))
 
 describe('Tests du formulaire ', () => {
 	// 1er test : affichage du formulaire

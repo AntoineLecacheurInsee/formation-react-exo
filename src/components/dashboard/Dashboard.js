@@ -1,4 +1,4 @@
-import Formulaire from "./Formulaire"
+import Formulaire from "./FormulaireMui"
 import Tableau from "./Tableau"
 
 const Dashboard = ({nomApplication}) => {

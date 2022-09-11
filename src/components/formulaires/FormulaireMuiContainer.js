@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import Formulaire from './Formulaire'
-import { majNomAppli, modifierCompteur } from './redux/actions'
+import FormulaireMui from './FormulaireMui'
+import { majNomAppli, modifierCompteur } from '../redux/actions'
 
 const mapDispatchToProps = dispatch => (
     {
@@ -8,4 +8,4 @@ const mapDispatchToProps = dispatch => (
     	mettreAJour : valeur => dispatch(majNomAppli(valeur)), 
     }
 )
-export default connect(null, mapDispatchToProps)(Formulaire)
+export default connect(null, mapDispatchToProps)(FormulaireMui)

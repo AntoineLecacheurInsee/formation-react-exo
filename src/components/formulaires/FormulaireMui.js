@@ -2,12 +2,11 @@ import { Button, ButtonGroup, Container, FormControl, InputLabel, MenuItem, Pape
 import Grid from '@mui/material/Grid';
 import { Box } from "@mui/system";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { default as MuiLink } from '@material-ui/core/Link'
 
 const Formulaire = ({ incrementer, mettreAJour }) => {
 
-    // const { state } = useLocation();
     const [nom, setNom] = useState('application test')
     const [version, setVersion] = useState(1)
     const [etat, setEtat] = useState("OBSOLETE")
@@ -57,7 +56,7 @@ const Formulaire = ({ incrementer, mettreAJour }) => {
                     </Grid>
                     <Box sx={{ alignItems: 'center', display: 'flex', padding: '2em' }}>
                         <ButtonGroup variant="outlined" aria-label="outlined button group">
-                            <Button onClick={e => { e.preventDefault(); enregistrer() }}> Enregistrer</Button>
+                            <Button onClick={e => { e.preventDefault(); enregistrer() }}>Enregistrer</Button>
                         </ButtonGroup>
                     </Box>
                 </Paper>

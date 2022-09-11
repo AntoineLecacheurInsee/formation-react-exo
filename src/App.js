@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import { CounterModernRedux } from './components/CounterModernRedux';
+import { CounterModernRedux } from './components/divers/CounterModernRedux';
 import Dashboard from './components/Dashboard';
-import DashboardContainer from './components/DashboardContainer';
-import Formulaire from './components/Formulaire';
-import FormulaireContainer from './components/FormulaireContainer';
+import DashboardContainer from './components/dashboard/DashboardContainer';
+import Formulaire from './components/formulaires/Formulaire';
+import FormulaireMuiContainer from './components/FormulaireMuiContainer';
 import FormulaireFormik from './components/FormulaireFormik';
 import MonComposant from './components/MonComposant';
 import Tableau from './components/Tableau';
@@ -14,18 +14,20 @@ import TableauDataGrid from './components/TableauDataGrid';
 import TableauDatatables from './components/TableauDatatables';
 
 const App = () => {
-  
+
   return <>
     <Routes>
-      <Route path='formulaire-redux' element={<FormulaireContainer/>}/>
-      <Route path='tableau-redux' element={<TableauContainer/>}/>
-      <Route path='dashboard-redux' element={<DashboardContainer/>}/>
-      <Route path='dashboard' element={<Dashboard/>}/>
-      <Route path='demo' element={<MonComposant/>}/>
-      <Route path='tableau-datatables' element={<TableauDatatables/>}/>
-      <Route path='tableau-datagrid' element={<TableauDataGrid/>}/>
-      <Route path='formulaire-formik' element={<FormulaireFormik/>}/>
-      <Route path='compteur' element={<CounterModernRedux/>}/>
+      <Route path='formulaire' element={<Formulaire />} />
+      <Route path='formulaire-redux' element={<FormulaireMuiContainer />} />
+      <Route path='tableau-redux' element={<TableauContainer />} />
+      <Route path='dashboard-redux' element={<DashboardContainer />} />
+      <Route path='dashboard' element={<Dashboard />} />
+      <Route path='demo' element={<MonComposant />} />
+      <Route path='tableau' element={<Tableau />} />
+      <Route path='tableau-datatables' element={<TableauDatatables />} />
+      <Route path='tableau-datagrid' element={<TableauDataGrid />} />
+      <Route path='formulaire-formik' element={<FormulaireFormik />} />
+      <Route path='compteur' element={<CounterModernRedux />} />
     </Routes>
   </>
     ;
